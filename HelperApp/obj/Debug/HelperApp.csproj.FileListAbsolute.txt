@@ -1,0 +1,15 @@
+C:\Users\TryDev\source\repos\HelperApp\HelperApp\bin\Debug\HelperApp.exe.config
+C:\Users\TryDev\source\repos\HelperApp\HelperApp\bin\Debug\HelperApp.exe
+C:\Users\TryDev\source\repos\HelperApp\HelperApp\bin\Debug\HelperApp.pdb
+C:\Users\TryDev\source\repos\HelperApp\HelperApp\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\TryDev\source\repos\HelperApp\HelperApp\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\TryDev\source\repos\HelperApp\HelperApp\obj\Debug\HelperApp.csproj.AssemblyReference.cache
+C:\Users\TryDev\source\repos\HelperApp\HelperApp\obj\Debug\HelperApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\TryDev\source\repos\HelperApp\HelperApp\obj\Debug\HelperApp.FrmGenerateQRCode.resources
+C:\Users\TryDev\source\repos\HelperApp\HelperApp\obj\Debug\HelperApp.Properties.Resources.resources
+C:\Users\TryDev\source\repos\HelperApp\HelperApp\obj\Debug\HelperApp.csproj.GenerateResource.cache
+C:\Users\TryDev\source\repos\HelperApp\HelperApp\obj\Debug\HelperApp.csproj.CoreCompileInputs.cache
+C:\Users\TryDev\source\repos\HelperApp\HelperApp\obj\Debug\HelperApp.csproj.CopyComplete
+C:\Users\TryDev\source\repos\HelperApp\HelperApp\obj\Debug\HelperApp.exe
+C:\Users\TryDev\source\repos\HelperApp\HelperApp\obj\Debug\HelperApp.pdb
+C:\Users\TryDev\source\repos\HelperApp\HelperApp\bin\Debug\Zen.Barcode.Core.dll

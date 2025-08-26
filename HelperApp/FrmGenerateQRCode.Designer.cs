@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.LblCopy = new System.Windows.Forms.Label();
             this.RbMultiple = new System.Windows.Forms.RadioButton();
             this.RbManual = new System.Windows.Forms.RadioButton();
             this.TxtText = new System.Windows.Forms.TextBox();
@@ -42,20 +43,21 @@
             this.TsmiChooseImage = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmiRemoveImage = new System.Windows.Forms.ToolStripMenuItem();
             this.PicQRCode = new System.Windows.Forms.PictureBox();
-            this.DgvExcel = new System.Windows.Forms.DataGridView();
             this.CmsQRCode = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.TsmiSaveQRCode = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmiClearQRCode = new System.Windows.Forms.ToolStripMenuItem();
+            this.DgvExcel = new System.Windows.Forms.DataGridView();
             this.CmsGridView = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.TsmiUploadFileExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmiClearFileExcel = new System.Windows.Forms.ToolStripMenuItem();
-            this.LblCopy = new System.Windows.Forms.Label();
+            this.TsmiSaveOnlyQRCode = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmiSaveQRCodeWithTemplate = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.CmsLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicQRCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvExcel)).BeginInit();
             this.CmsQRCode.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvExcel)).BeginInit();
             this.CmsGridView.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,6 +80,18 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "បង្កើត និងរក្សា QR Code";
+            // 
+            // LblCopy
+            // 
+            this.LblCopy.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.LblCopy.BackColor = System.Drawing.SystemColors.Window;
+            this.LblCopy.Location = new System.Drawing.Point(518, 84);
+            this.LblCopy.Name = "LblCopy";
+            this.LblCopy.Size = new System.Drawing.Size(42, 29);
+            this.LblCopy.TabIndex = 5;
+            this.LblCopy.Text = "ចម្លង";
+            this.LblCopy.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblCopy.Click += new System.EventHandler(this.LblCopy_Click);
             // 
             // RbMultiple
             // 
@@ -205,6 +219,31 @@
             this.PicQRCode.TabIndex = 0;
             this.PicQRCode.TabStop = false;
             // 
+            // CmsQRCode
+            // 
+            this.CmsQRCode.Font = new System.Drawing.Font("Nokora", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmsQRCode.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmiSaveQRCode,
+            this.TsmiClearQRCode});
+            this.CmsQRCode.Name = "CmsQRCode";
+            this.CmsQRCode.Size = new System.Drawing.Size(181, 70);
+            // 
+            // TsmiSaveQRCode
+            // 
+            this.TsmiSaveQRCode.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmiSaveOnlyQRCode,
+            this.TsmiSaveQRCodeWithTemplate});
+            this.TsmiSaveQRCode.Name = "TsmiSaveQRCode";
+            this.TsmiSaveQRCode.Size = new System.Drawing.Size(180, 22);
+            this.TsmiSaveQRCode.Text = "រក្សា QR Code";
+            // 
+            // TsmiClearQRCode
+            // 
+            this.TsmiClearQRCode.Name = "TsmiClearQRCode";
+            this.TsmiClearQRCode.Size = new System.Drawing.Size(180, 22);
+            this.TsmiClearQRCode.Text = "សម្អាត QR Code";
+            this.TsmiClearQRCode.Click += new System.EventHandler(this.TsmiClearQRCode_Click);
+            // 
             // DgvExcel
             // 
             this.DgvExcel.AllowUserToAddRows = false;
@@ -228,29 +267,6 @@
             this.DgvExcel.TabIndex = 1;
             this.DgvExcel.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvExcel_CellClick);
             // 
-            // CmsQRCode
-            // 
-            this.CmsQRCode.Font = new System.Drawing.Font("Nokora", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmsQRCode.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TsmiSaveQRCode,
-            this.TsmiClearQRCode});
-            this.CmsQRCode.Name = "CmsQRCode";
-            this.CmsQRCode.Size = new System.Drawing.Size(164, 48);
-            // 
-            // TsmiSaveQRCode
-            // 
-            this.TsmiSaveQRCode.Name = "TsmiSaveQRCode";
-            this.TsmiSaveQRCode.Size = new System.Drawing.Size(163, 22);
-            this.TsmiSaveQRCode.Text = "រក្សា QR Code";
-            this.TsmiSaveQRCode.Click += new System.EventHandler(this.TsmiSaveQRCode_Click);
-            // 
-            // TsmiClearQRCode
-            // 
-            this.TsmiClearQRCode.Name = "TsmiClearQRCode";
-            this.TsmiClearQRCode.Size = new System.Drawing.Size(163, 22);
-            this.TsmiClearQRCode.Text = "សម្អាត QR Code";
-            this.TsmiClearQRCode.Click += new System.EventHandler(this.TsmiClearQRCode_Click);
-            // 
             // CmsGridView
             // 
             this.CmsGridView.Font = new System.Drawing.Font("Nokora", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -270,21 +286,23 @@
             // TsmiClearFileExcel
             // 
             this.TsmiClearFileExcel.Name = "TsmiClearFileExcel";
-            this.TsmiClearFileExcel.Size = new System.Drawing.Size(165, 22);
+            this.TsmiClearFileExcel.Size = new System.Drawing.Size(177, 22);
             this.TsmiClearFileExcel.Text = "សម្អាតទិន្នន័យ";
             this.TsmiClearFileExcel.Click += new System.EventHandler(this.TsmiClearFileExcel_Click);
             // 
-            // LblCopy
+            // TsmiSaveOnlyQRCode
             // 
-            this.LblCopy.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.LblCopy.BackColor = System.Drawing.SystemColors.Window;
-            this.LblCopy.Location = new System.Drawing.Point(518, 84);
-            this.LblCopy.Name = "LblCopy";
-            this.LblCopy.Size = new System.Drawing.Size(42, 29);
-            this.LblCopy.TabIndex = 5;
-            this.LblCopy.Text = "ចម្លង";
-            this.LblCopy.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LblCopy.Click += new System.EventHandler(this.LblCopy_Click);
+            this.TsmiSaveOnlyQRCode.Name = "TsmiSaveOnlyQRCode";
+            this.TsmiSaveOnlyQRCode.Size = new System.Drawing.Size(187, 22);
+            this.TsmiSaveOnlyQRCode.Text = "រក្សាតែ QR Code";
+            this.TsmiSaveOnlyQRCode.Click += new System.EventHandler(this.TsmiSaveOnlyQRCode_Click);
+            // 
+            // TsmiSaveQRCodeWithTemplate
+            // 
+            this.TsmiSaveQRCodeWithTemplate.Name = "TsmiSaveQRCodeWithTemplate";
+            this.TsmiSaveQRCodeWithTemplate.Size = new System.Drawing.Size(187, 22);
+            this.TsmiSaveQRCodeWithTemplate.Text = "រក្សាជាមួយ Template";
+            this.TsmiSaveQRCodeWithTemplate.Click += new System.EventHandler(this.TsmiSaveQRCodeWithTemplate_Click);
             // 
             // FrmGenerateQRCode
             // 
@@ -303,8 +321,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).EndInit();
             this.CmsLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PicQRCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvExcel)).EndInit();
             this.CmsQRCode.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvExcel)).EndInit();
             this.CmsGridView.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -333,6 +351,8 @@
         private System.Windows.Forms.ToolStripMenuItem TsmiUploadFileExcel;
         private System.Windows.Forms.ToolStripMenuItem TsmiClearFileExcel;
         private System.Windows.Forms.Label LblCopy;
+        private System.Windows.Forms.ToolStripMenuItem TsmiSaveOnlyQRCode;
+        private System.Windows.Forms.ToolStripMenuItem TsmiSaveQRCodeWithTemplate;
     }
 }
 

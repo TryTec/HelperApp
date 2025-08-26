@@ -157,7 +157,7 @@ namespace HelperApp
                     return;
                 }
 
-                GenerateQRCode(TxtText.Text);
+                GenerateQRCode2(TxtText.Text);
             }
             else
             {
@@ -186,7 +186,7 @@ namespace HelperApp
                         {
                             string text = row.Field<string>("Name");
 
-                            GenerateQRCode(text);
+                            GenerateQRCode2(text);
                             text = text.Replace("/", "");
 
                             PicQRCode.Image.Save(string.Format("{0}\\{1}.png", selectedPath, text.Trim()), ImageFormat.Png);
@@ -217,6 +217,26 @@ namespace HelperApp
             }
         }
 
+        private void GenerateQRCode2(string text)
+        {
+            CodeQrBarcodeDraw qrcode = BarcodeDrawFactory.CodeQr;
+            var generatedQRCode = qrcode.Draw(text, 500, 10);
+            //Merge QR Code with Frame
+            var qrCode = new Bitmap(generatedQRCode);
+            var frame = new Bitmap(Properties.Resources.qrcode_white_frame);
+            var gr = Graphics.FromImage(frame);
+            gr.DrawImage(qrCode, (frame.Width - qrCode.Width) / 2, (frame.Height - qrCode.Height) / 2);
+
+            //Merge Log with QR Code
+            /*Bitmap logo = new Bitmap(PicLogo.Image, 100, 100);
+            logo.MakeTransparent();
+            gr.DrawImage(logo, (frame.Width - logo.Width) / 2, (frame.Height - logo.Height) / 2);
+            PicLogo.Visible = false;*/
+
+            PicQRCode.Image = frame;
+            BtnSaveQRCode.Enabled = true;
+        }
+
         private void BtnSaveQRCode_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
@@ -226,8 +246,9 @@ namespace HelperApp
             {
                 try
                 {
-                    string text = TxtText.Text;
-                    text = text.Replace("/", "");
+                    /*string text = TxtText.Text;
+                    text = text.Replace("/", "");*/
+                    string text = "primecineplex-onelink-app";
                     PicQRCode.Image.Save(string.Format("{0}\\{1}.png", folderBrowserDialog.SelectedPath, text.Trim()), ImageFormat.Png);
                     Enabled = false;
                     Cursor = Cursors.WaitCursor;
@@ -254,11 +275,6 @@ namespace HelperApp
         private void TxtText_Enter(object sender, EventArgs e)
         {
             Helpers.ChangeKeyboardToEnglish();
-        }
-
-        private void TsmiSaveQRCode_Click(object sender, EventArgs e)
-        {
-            BtnSaveQRCode.PerformClick();
         }
 
         private void TsmiClearQRCode_Click(object sender, EventArgs e)
@@ -298,6 +314,41 @@ namespace HelperApp
             {
                 Clipboard.SetText(TxtText.Text);
                 MessageBox.Show("អត្ថបទចម្លងរួចហើយ");
+            }
+        }
+
+        private void TsmiSaveOnlyQRCode_Click(object sender, EventArgs e)
+        {
+            if (RbManual.Checked)
+            {
+                BtnSaveQRCode.PerformClick();
+            }
+            else
+            {
+                BtnGenerateQRCode.PerformClick();
+            }
+        }
+
+        private void TsmiSaveQRCodeWithTemplate_Click(object sender, EventArgs e)
+        {
+            if(RbManual.Checked)
+            {
+                if (PicQRCode.Image != null)
+                {
+                    FrmPreviewQRCodeTemplate objfrmPreviewPromoteCode = new FrmPreviewQRCodeTemplate();
+                    objfrmPreviewPromoteCode.PromoteCode = TxtText.Text;
+                    objfrmPreviewPromoteCode.QRCodeImage = PicQRCode.Image;
+                    objfrmPreviewPromoteCode.ShowDialog();
+                }
+            }
+            else
+            {
+                if (dt.Rows.Count > 1)
+                {
+                    FrmPreviewQRCodeTemplate objfrmPreviewPromoteCode = new FrmPreviewQRCodeTemplate();
+                    objfrmPreviewPromoteCode.DtQRCode = dt;
+                    objfrmPreviewPromoteCode.ShowDialog();
+                }
             }
         }
     }
